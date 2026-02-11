@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: perplexity-clone
+
+# GLOBAL VARIABLES
+Globals:
+  Function:
+    Runtime: python3.11
+    Architectures:
+      - x86_64
+    MemorySize: 128
+    LoggingConfig:
+      LogFormat: JSON
+
+Resources:
+  # Main LAMBDA
+  MainLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./
+      Handler: app.lambda_handler
+      Timeout: 15
+      FunctionUrlConfig:
+        AuthType: NONE
+    Metadata:
+      BuildMethod: python3.11
+
+
+Outputs:
+  MyFunctionUrlEndpoint:
+    Description: "My Lambda Function URL Endpoint"
+    Value: !GetAtt MainLambdaUrl.FunctionUrl

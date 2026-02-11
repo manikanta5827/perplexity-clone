@@ -1,0 +1,6 @@
+pydantic==2.11.9
+newspaper3k==0.2.8
+requests==2.32.3
+lxml==6.0.2
+lxml_html_clean==0.4.2
+ddgs==9.10.0
