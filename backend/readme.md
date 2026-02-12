@@ -1,3 +1,3 @@
 ## To invoke locally lambda
 
-- sam local invoke MainLambda --event event.json --env-vars env.json
+- `sam local invoke MainLambda --event event.json --env-vars env.json`
