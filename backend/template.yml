@@ -8,9 +8,7 @@ Globals:
     Runtime: python3.11
     Architectures:
       - x86_64
-    MemorySize: 128
-    LoggingConfig:
-      LogFormat: JSON
+    MemorySize: 1000
 
 Resources:
   # Main LAMBDA
@@ -19,9 +17,12 @@ Resources:
     Properties:
       CodeUri: ./
       Handler: app.lambda_handler
-      Timeout: 15
+      Timeout: 60
       FunctionUrlConfig:
         AuthType: NONE
+      Environment:
+        Variables:
+          GROQ_API_KEY: api_key
     Metadata:
       BuildMethod: python3.11
 
